@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { yekanBakh } from './fonts';
 import './globals.css';
+import { Providers } from './providers';
+import Header from '@/components/layout/header/header';
 
 export const metadata: Metadata = {
   title: {
@@ -25,8 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl" className={yekanBakh.variable}>
-      <body className={`${yekanBakh.className} antialiased`}>{children}</body>
+    <html
+      lang="fa"
+      dir="rtl"
+      className={yekanBakh.variable}
+      suppressHydrationWarning
+    >
+      <body className={`${yekanBakh.className} antialiased`}>
+        <div className="flex flex-col min-h-screen bg-secondary">
+          <Providers>
+            <Header />
+            {children}
+          </Providers>
+        </div>
+      </body>
     </html>
   );
 }

@@ -1,7 +1,11 @@
 export default function Home() {
   return (
     <div>
-      <h1>ایده گستران جنوب</h1>
+      <main className="flex-auto py-5">
+        <div className="max-w-7xl px-4 mx-auto">
+          <p className="text-foreground">صفحه اصلی </p>
+        </div>
+      </main>
     </div>
   );
 }
