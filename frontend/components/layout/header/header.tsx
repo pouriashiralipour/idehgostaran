@@ -1,4 +1,5 @@
 import Logo from './logo';
+import ThemeToggle from './theme-toggle';
 
 export default function Header() {
   return (
@@ -10,7 +11,9 @@ export default function Header() {
               <Logo />
             </div>
             <div className="lg:flex hidden items-center gap-5"></div>
-            <div className="flex items-center md:gap-5 gap-3 mr-auto"></div>
+            <div className="flex items-center md:gap-5 gap-3 mr-auto">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
         <div className="lg:block hidden bg-primary rounded-b-3xl mx-12">
