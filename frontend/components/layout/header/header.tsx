@@ -1,15 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { Logo } from './logo';
+
 import { MobileMenuButton } from './mobile-menu-button';
 import { CategoriesMegaMenu } from './categories-mega-menu';
-import { SearchForm } from './search-form';
-import { ThemeToggle } from './theme-toggle';
+
 import { CartButton } from './cart-button';
 import { UserMenu } from './user-menu';
 import { MainNav } from './main-nav';
 import { MobileOffcanvas } from './mobile-offcanvas/mobile-offcanvas';
+import Logo from './logo';
+import SearchForm from './search-form';
+import ThemeToggle from './theme-toggle';
 
 /**
  * Site header: top row (logo, mobile menu trigger, categories mega
