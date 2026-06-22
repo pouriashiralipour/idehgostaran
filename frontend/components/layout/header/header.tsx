@@ -1,6 +1,8 @@
+import { CartButton } from './cart-button';
 import Logo from './logo';
 import SearchForm from './search-form';
 import ThemeToggle from './theme-toggle';
+import UserMenu from './user-menu';
 
 export default function Header() {
   return (
@@ -16,6 +18,8 @@ export default function Header() {
             </div>
             <div className="flex items-center md:gap-5 gap-3 mr-auto">
               <ThemeToggle />
+              <CartButton itemCount={2} />
+              <UserMenu />
             </div>
           </div>
         </div>
