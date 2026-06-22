@@ -20,7 +20,7 @@ interface UserMenuProps {
  * click (replacing the original `x-data="{ isOpen: false }"` +
  * `x-on:click.outside` Alpine pattern).
  */
-export function UserMenu({ userName = 'جلال بهرامی راد' }: UserMenuProps) {
+export function UserMenu({ userName = 'پوریا شیرالی پور' }: UserMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
