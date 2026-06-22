@@ -1,8 +1,16 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { ReactElement, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ChevronDownIcon, UserIcon } from '@/components/ui/icons';
+import {
+  ChevronDownIcon,
+  CommentsIcon,
+  CoursesIcon,
+  FinancialIcon,
+  LogoutIcon,
+  ProfileIcon,
+  UserIcon,
+} from '@/components/ui/icons';
 import { userMenuLinks } from '@/data/navigation';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { cn } from '@/lib/utils';
@@ -11,6 +19,18 @@ interface UserMenuProps {
   /** Display name shown next to the avatar (e.g. from the authenticated user). */
   userName?: string;
 }
+
+/**
+ * Maps each userMenuLink id to its corresponding icon component.
+ * Keeps the render logic below free of if/else chains.
+ */
+const menuIcons: Record<string, ReactElement> = {
+  profile: <ProfileIcon className="w-5 h-5" />,
+  'profile-courses': <CoursesIcon className="w-5 h-5" />,
+  'profile-financial': <FinancialIcon className="w-5 h-5" />,
+  'profile-comments': <CommentsIcon className="w-5 h-5" />,
+  logout: <LogoutIcon className="w-5 h-5" />,
+};
 
 /**
  * User account dropdown shown in the desktop header — avatar, name,
@@ -63,6 +83,7 @@ export function UserMenu({ userName = 'پوریا شیرالی پور' }: UserMe
                   role="menuitem"
                   className="flex items-center gap-2 w-full text-red-500 transition-colors hover:text-red-700 px-3 py-2"
                 >
+                  {menuIcons[link.id]}
                   <span className="font-semibold text-xs">{link.title}</span>
                 </button>
               ) : (
@@ -72,6 +93,7 @@ export function UserMenu({ userName = 'پوریا شیرالی پور' }: UserMe
                   role="menuitem"
                   className="flex items-center gap-2 w-full text-foreground transition-colors hover:text-primary px-3 py-2"
                 >
+                  {menuIcons[link.id]}
                   <span className="font-semibold text-xs">{link.title}</span>
                 </Link>
               )

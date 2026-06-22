@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { yekanBakh } from './fonts';
 import './globals.css';
 import { Providers } from './providers';
-import Header from '@/components/layout/header/header';
+import { Header } from '@/components/layout/header/header';
 
 export const metadata: Metadata = {
   title: {
