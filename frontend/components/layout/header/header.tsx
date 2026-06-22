@@ -1,6 +1,7 @@
 import { CartButton } from './cart-button';
 import { CategoriesMegaMenu } from './categories-mega-menu';
 import Logo from './logo';
+import { MainNav } from './main-nav';
 import SearchForm from './search-form';
 import ThemeToggle from './theme-toggle';
 import { UserMenu } from './user-menu';
@@ -25,9 +26,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="lg:block hidden bg-primary rounded-b-3xl mx-12">
-          <ul className="flex items-center justify-center py-2"></ul>
-        </div>
+        <MainNav />
       </div>
     </header>
   );
