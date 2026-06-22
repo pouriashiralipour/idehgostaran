@@ -1,25 +1,24 @@
 'use client';
 
 import { useState } from 'react';
-
+import { Logo } from './logo';
+import { MobileMenuButton } from './mobile-menu-button';
 import { CategoriesMegaMenu } from './categories-mega-menu';
-
+import { SearchForm } from './search-form';
+import { ThemeToggle } from './theme-toggle';
 import { CartButton } from './cart-button';
 import { UserMenu } from './user-menu';
 import { MainNav } from './main-nav';
-import Logo from './logo';
-import SearchForm from './search-form';
-import ThemeToggle from './theme-toggle';
-import { MobileMenuButton } from './mobile-menu-button';
+import { MobileOffcanvas } from './mobile-offcanvas/mobile-offcanvas';
 
 /**
  * Site header: top row (logo, mobile menu trigger, categories mega
  * menu, search, theme toggle, cart, user menu) plus the primary nav
- * bar below it.
+ * bar below it, and the full mobile offcanvas panel.
  *
- * Client Component: owns `isOffcanvasOpen` state, the single source
- * of truth shared between the mobile menu trigger button and the
- * offcanvas panel (added in the next step) — matching the original
+ * Client Component: owns `isOffcanvasOpen` state — the single source
+ * of truth shared between MobileMenuButton (opens) and MobileOffcanvas
+ * (reads + closes), matching the original Alpine
  * `x-data="{ offcanvasOpen: false }"` scope on the <header> element.
  */
 export function Header() {
@@ -30,16 +29,19 @@ export function Header() {
       <div className="max-w-7xl relative px-4 mx-auto">
         <div className="bg-background rounded-3xl py-3 px-5">
           <div className="flex items-center gap-8 h-20">
+            {/* Left cluster: hamburger + logo */}
             <div className="flex items-center gap-3">
               <MobileMenuButton onClick={() => setIsOffcanvasOpen(true)} />
               <Logo />
             </div>
 
+            {/* Desktop centre: mega menu + search */}
             <div className="lg:flex hidden items-center gap-5">
               <CategoriesMegaMenu />
               <SearchForm />
             </div>
 
+            {/* Right cluster: theme, cart, user */}
             <div className="flex items-center md:gap-5 gap-3 mr-auto">
               <ThemeToggle className="hidden lg:inline-flex" />
               <CartButton itemCount={2} />
@@ -48,13 +50,15 @@ export function Header() {
           </div>
         </div>
 
+        {/* Desktop primary nav bar */}
         <MainNav />
       </div>
 
-      {/*
-        MobileOffcanvas will be added in the next step, controlled by
-        isOffcanvasOpen / setIsOffcanvasOpen.
-      */}
+      {/* Mobile offcanvas — controlled by isOffcanvasOpen */}
+      <MobileOffcanvas
+        isOpen={isOffcanvasOpen}
+        onClose={() => setIsOffcanvasOpen(false)}
+      />
     </header>
   );
 }
