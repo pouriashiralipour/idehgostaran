@@ -1,4 +1,5 @@
 import Logo from './logo';
+import SearchForm from './search-form';
 import ThemeToggle from './theme-toggle';
 
 export default function Header() {
@@ -10,7 +11,9 @@ export default function Header() {
             <div className="flex items-center gap-3">
               <Logo />
             </div>
-            <div className="lg:flex hidden items-center gap-5"></div>
+            <div className="lg:flex hidden items-center gap-5">
+              <SearchForm />
+            </div>
             <div className="flex items-center md:gap-5 gap-3 mr-auto">
               <ThemeToggle />
             </div>
