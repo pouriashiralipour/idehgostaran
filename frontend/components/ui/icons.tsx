@@ -467,6 +467,156 @@ export function LogoutIcon(props: IconProps) {
   );
 }
 
+/**
+ * ─── Intro section icons ────────────────────────────────────────────────────
+ */
+
+/** Ticket / discount tag icon — used in the "جشنواره تخفیف" promo badge. */
+export function TicketIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-4 h-4"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m9 14.25 6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185ZM9.75 9h.008v.008H9.75V9Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm4.125 4.5h.008v.008h-.008V13.5Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+      />
+    </svg>
+  );
+}
+
+/** Diagonal arrow icon — used in the "شروع یادگیری" CTA button. */
+export function ArrowDiagonalIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="w-5 h-5"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M14.78 14.78a.75.75 0 0 1-1.06 0L6.5 7.56v5.69a.75.75 0 0 1-1.5 0v-7.5A.75.75 0 0 1 5.75 5h7.5a.75.75 0 0 1 0 1.5H7.56l7.22 7.22a.75.75 0 0 1 0 1.06Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+/** Phone icon — used in the "مشاوره" CTA button. */
+export function PhoneIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="w-4 h-4"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+/** Graduation-cap icon — used in the "بیش از ۸۰ دوره آموزشی" feature. */
+export function WebsiteDesignIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6 text-success"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M16.5 7.5L20 12l-3.5 4.5M7.5 7.5L4 12l3.5 4.5M14 4l-4 16"
+      />
+    </svg>
+  );
+}
+
+/** Banknotes icon — used in the "ضمانت بازگشت وجه" feature. */
+export function MobileDesignIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6 text-warning"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10.5 1.5h3a2.25 2.25 0 012.25 2.25v16.5A2.25 2.25 0 0113.5 22.5h-3A2.25 2.25 0 018.25 20.25V3.75A2.25 2.25 0 0110.5 1.5z"
+      />
+    </svg>
+  );
+}
+
+/** Open book icon — used in the "یادگیری با تمرین و آزمون" feature. */
+export function UiDesignIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6 text-primary"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15 15l-6 6m0 0l-1.5-4.5L3 15l4.5-1.5L9 9l6 6z"
+      />
+    </svg>
+  );
+}
+
+/** Phone support icon — used in the "پشتیبانی ۲۴ساعته" feature. */
+export function SupportIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6 text-info"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"
+      />
+    </svg>
+  );
+}
+
 /** Three-horizontal-lines icon — used on the mobile categories accordion trigger. */
 export function ListIcon(props: IconProps) {
   return (
