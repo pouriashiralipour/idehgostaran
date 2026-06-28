@@ -39,14 +39,14 @@ export function Header() {
 
             {/* Desktop centre: mega menu + search */}
             <div className="lg:flex hidden items-center gap-5">
-              <CategoriesMegaMenu />
+              {/* <CategoriesMegaMenu /> */}
               <SearchForm />
             </div>
 
             {/* Right cluster: theme, cart, user */}
             <div className="flex items-center md:gap-5 gap-3 mr-auto">
               <ThemeToggle className="hidden lg:inline-flex" />
-              <CartButton itemCount={2} />
+              {/* <CartButton itemCount={2} /> */}
               <UserMenu />
             </div>
           </div>

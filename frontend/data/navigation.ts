@@ -11,9 +11,9 @@ export const mainNavLinks: NavLink[] = [
   { id: 'consultation', title: 'مشاوره', href: '#' },
   {
     id: 'useful-links',
-    title: 'لینکهای مفید',
+    title: 'نمونه کار',
     href: '#',
-    hasSubmenu: true,
+    hasSubmenu: false,
     children: [
       { id: 'profile', title: 'مشاهده پروفایل', href: '/profile' },
       { id: 'profile-courses', title: 'دوره ها', href: '/profile-courses' },
