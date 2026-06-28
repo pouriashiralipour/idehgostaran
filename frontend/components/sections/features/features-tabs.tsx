@@ -2,9 +2,9 @@
 
 import {
   LightBulbIcon,
-  CommunityIcon,
+  SwatchIcon,
   CodeIcon,
-  SupportIcon,
+  ShieldIcon,
 } from '@/components/ui/icons';
 import { featureTabs, type FeatureTab } from '@/data/features';
 import { FeaturesTabPanel } from './features-tab-panel';
@@ -16,9 +16,9 @@ type IconComponent = (props: SVGProps<SVGSVGElement>) => JSX.Element;
 /** Maps tab iconName strings to actual icon components. */
 const tabIconMap: Record<FeatureTab['iconName'], IconComponent> = {
   LightBulbIcon,
-  CommunityIcon,
+  SwatchIcon,
   CodeIcon,
-  SupportIcon,
+  ShieldIcon,
 };
 
 /**

@@ -19,7 +19,7 @@ export interface IntroFeature {
 export const introFeatures: IntroFeature[] = [
   {
     id: 'courses',
-    label: 'طراحی اختصاصی وب‌سایت',
+    label: 'طراحی وب‌سایت های اختصاصی',
     color: 'success',
     iconName: 'WebsiteDesignIcon',
   },
@@ -31,7 +31,7 @@ export const introFeatures: IntroFeature[] = [
   },
   {
     id: 'learning',
-    label: 'طراحی UI/UX مدرن',
+    label: 'ساخت نرم‌افزارهای اختصاصی',
     color: 'primary',
     iconName: 'UiDesignIcon',
   },

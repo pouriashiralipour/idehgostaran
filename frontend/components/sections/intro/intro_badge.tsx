@@ -12,7 +12,7 @@ interface IntroBadgeProps {
  */
 export function IntroBadge({
   label,
-  subLabel = 'قیمت مناسب  :)',
+  subLabel = ' ایده از شما، گسترش با ما :)',
 }: IntroBadgeProps) {
   return (
     <div className="flex flex-wrap items-center gap-2">
