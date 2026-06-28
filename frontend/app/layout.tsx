@@ -4,6 +4,7 @@ import { yekanBakh } from './fonts';
 import './globals.css';
 import { Providers } from './providers';
 import { Header } from '@/components/layout/header/header';
+import { Footer } from '@/components/layout/footer/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Providers>
             <Header />
             {children}
+            <Footer />
           </Providers>
         </div>
       </body>
