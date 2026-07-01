@@ -1,3 +1,4 @@
+import { ArticlesSpotlight } from '@/components/articles/articles-spotlight';
 import { LatestArticles } from '@/components/articles/latest-articles';
 import CounselingSection from '@/components/sections/counseling/counseling-section';
 import { FeaturesBadges } from '@/components/sections/features/features-badges';
@@ -18,6 +19,7 @@ export default function Home() {
             <CounselingSection />
           </div>
           <FeedbackSection />
+          <ArticlesSpotlight />
         </div>
       </main>
     </div>
