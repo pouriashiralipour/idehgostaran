@@ -121,6 +121,28 @@ export function ChevronLeftIcon(props: IconProps) {
   );
 }
 
+/** Chevron pointing right — used as a "back" indicator (RTL). */
+export function ChevronRightIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-5 h-5"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8.25 4.5 15.75 12l-7.5 7.5"
+      />
+    </svg>
+  );
+}
+
 /** Diagonal chevron (used for the mobile accordion expand/collapse trigger). */
 export function ChevronDiagonalIcon(props: IconProps) {
   return (

@@ -1,5 +1,7 @@
+import CounselingSection from '@/components/sections/counseling/counseling-section';
 import { FeaturesBadges } from '@/components/sections/features/features-badges';
 import { FeatureTab } from '@/components/sections/features/features-tabs';
+import { FeedbackSection } from '@/components/sections/feedback/feedback-section';
 import { IntroSection } from '@/components/sections/intro/intro_section';
 
 export default function Home() {
@@ -11,7 +13,9 @@ export default function Home() {
             <IntroSection />
             <FeaturesBadges />
             <FeatureTab />
+            <CounselingSection />
           </div>
+          <FeedbackSection />
         </div>
       </main>
     </div>
