@@ -121,7 +121,76 @@ export function ChevronLeftIcon(props: IconProps) {
   );
 }
 
-/** Chevron pointing right — used as a "back" indicator (RTL). */
+/** Eye icon — used for the "views" stat on article/blog cards. */
+export function EyeIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="w-5 h-5"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+      <path
+        fillRule="evenodd"
+        d="M.664 10.59a1.651 1.651 0 0 1 0-1.186A10.004 10.004 0 0 1 10 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0 1 10 17c-4.257 0-7.893-2.66-9.336-6.41ZM14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+/** Heart icon — used for the "save article" bookmark toggle. */
+export function HeartIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="w-5 h-5"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
+    </svg>
+  );
+}
+
+/**
+ * Outline clock icon — used next to "زمان مطالعه:" on the compact
+ * article-list card. Distinct from the solid `ClockIcon` already in
+ * this file (used for footer hours / the wide article card's stats
+ * row); kept separate since the two designs use different icon
+ * styles for the same concept.
+ */
+export function ClockOutlineIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="w-5 h-5"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+      />
+    </svg>
+  );
+}
+
+/**
+ * Chevron pointing right — the file only had `ChevronLeftIcon` (used
+ * as an RTL "go to submenu" indicator). This is its mirror, used as
+ * the "next slide" control in `TestimonialsCarousel`.
+ */
 export function ChevronRightIcon(props: IconProps) {
   return (
     <svg
@@ -137,7 +206,7 @@ export function ChevronRightIcon(props: IconProps) {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M8.25 4.5 15.75 12l-7.5 7.5"
+        d="m8.25 4.5 7.5 7.5-7.5 7.5"
       />
     </svg>
   );
