@@ -1,3 +1,4 @@
+import { LatestArticles } from '@/components/articles/latest-articles';
 import CounselingSection from '@/components/sections/counseling/counseling-section';
 import { FeaturesBadges } from '@/components/sections/features/features-badges';
 import { FeatureTab } from '@/components/sections/features/features-tabs';
@@ -13,6 +14,7 @@ export default function Home() {
             <IntroSection />
             <FeaturesBadges />
             <FeatureTab />
+            <LatestArticles maxItems={3} />
             <CounselingSection />
           </div>
           <FeedbackSection />
