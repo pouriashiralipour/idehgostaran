@@ -3,8 +3,6 @@ import type { Metadata } from 'next';
 import { yekanBakh } from './fonts';
 import './globals.css';
 import { Providers } from './providers';
-import { Header } from '@/components/layout/header/header';
-import { Footer } from '@/components/layout/footer/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -22,6 +20,19 @@ export const metadata: Metadata = {
   ],
 };
 
+/**
+ * Root layout — the only place `<html>`/`<body>` are declared.
+ *
+ * Deliberately contains NO Header/Footer and no page-chrome wrapper
+ * div anymore. Chrome (site header/footer vs. a minimal centered auth
+ * card) now belongs to each route group's own layout, since the two
+ * areas of the app need fundamentally different shells:
+ *   - `(main)`  → sticky-footer flex column with Header + Footer
+ *   - `(auth)`  → full-page centered card, no Header/Footer
+ *
+ * This file only owns what's truly global: fonts, RTL direction, and
+ * the theme Provider.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,13 +46,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${yekanBakh.className} antialiased`}>
-        <div className="flex flex-col min-h-screen bg-secondary">
-          <Providers>
-            <Header />
-            {children}
-            <Footer />
-          </Providers>
-        </div>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
