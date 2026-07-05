@@ -2,11 +2,13 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useTopLoader } from '@/hooks/use-top-loader';
 
 import { ArrowDiagonalIcon, ChevronRightIcon } from '@/components/ui/icons';
 import { useResendTimer } from '@/hooks/use-resend-timer';
 import { maskIranianPhoneNumber } from '@/lib/utils/phone';
 import { formatSecondsAsPersianClock } from '@/lib/utils/time';
+import { withMinimumDuration } from '@/lib/utils/async';
 import { otpFormSchema, type OtpFormValues } from '@/lib/validations/auth';
 
 interface OtpStepFormProps {
@@ -40,12 +42,19 @@ export function OtpStepForm({
     defaultValues: { otp: '' },
   });
 
+  const { start, done } = useTopLoader();
+
   const { secondsLeft, canResend, restart } = useResendTimer({
     durationInSeconds: 60,
   });
 
-  const onSubmit = handleSubmit(({ otp }) => {
-    onSubmitOtp(otp);
+  const onSubmit = handleSubmit(async ({ otp }) => {
+    start();
+    try {
+      await withMinimumDuration(Promise.resolve(onSubmitOtp(otp)));
+    } finally {
+      done();
+    }
   });
 
   const handleResendClick = (): void => {

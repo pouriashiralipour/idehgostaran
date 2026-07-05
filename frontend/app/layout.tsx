@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import NextTopLoader from 'nextjs-toploader';
 
 import { yekanBakh } from './fonts';
 import './globals.css';
@@ -23,15 +24,17 @@ export const metadata: Metadata = {
 /**
  * Root layout — the only place `<html>`/`<body>` are declared.
  *
- * Deliberately contains NO Header/Footer and no page-chrome wrapper
- * div anymore. Chrome (site header/footer vs. a minimal centered auth
- * card) now belongs to each route group's own layout, since the two
- * areas of the app need fundamentally different shells:
- *   - `(main)`  → sticky-footer flex column with Header + Footer
- *   - `(auth)`  → full-page centered card, no Header/Footer
+ * `NextTopLoader` renders a site-wide top progress bar on every route
+ * change (Link clicks, router.push, back/forward). It's a Client
+ * Component internally, but Server Components can render Client
+ * Components as children with no extra wrapper needed, so it's placed
+ * directly here rather than in `(main)`/`(auth)` layouts — this way
+ * BOTH the public site and the auth flow get the same bar for free.
  *
- * This file only owns what's truly global: fonts, RTL direction, and
- * the theme Provider.
+ * Color is tied to the `--primary` CSS variable (not a hardcoded hex)
+ * so it automatically follows the app's blue brand color in both
+ * light and dark theme, instead of drifting out of sync if the
+ * palette changes later.
  */
 export default function RootLayout({
   children,
@@ -46,6 +49,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${yekanBakh.className} antialiased`}>
+        <NextTopLoader
+          color="hsl(var(--primary))"
+          height={3}
+          showSpinner={false}
+          easing="ease"
+          speed={300}
+          crawlSpeed={200}
+          shadow="0 0 10px hsl(var(--primary)), 0 0 5px hsl(var(--primary))"
+        />
         <Providers>{children}</Providers>
       </body>
     </html>

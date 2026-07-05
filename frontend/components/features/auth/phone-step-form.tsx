@@ -4,23 +4,23 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { ArrowDiagonalIcon } from '@/components/ui/icons';
+import { useTopLoader } from '@/hooks/use-top-loader';
+import { withMinimumDuration } from '@/lib/utils/async';
 import { phoneFormSchema, type PhoneFormValues } from '@/lib/validations/auth';
 
 interface PhoneStepFormProps {
-  /** Called with the normalized "09xxxxxxxxx" phone number once the form passes validation. */
   onSubmitPhone: (phone: string) => void;
-  /** Pre-fills the input when the user returns from the OTP step to edit their number. */
   defaultPhone?: string;
 }
 
 /**
  * Step 1 of the auth flow: collect and validate an Iranian mobile
- * number, then hand the normalized value up to `AuthFlow` so it can
- * advance to the OTP step.
+ * number, then hand the normalized value up to `AuthFlow`.
  *
- * All format/normalization logic (Persian digits, +98, 0098) lives in
- * `phoneFormSchema` — this component only wires react-hook-form to
- * that schema and renders the result.
+ * Manually drives the site-wide top-loading bar around the submit
+ * handler (`start()`/`done()`), since form submission here doesn't
+ * navigate — it's a client state transition, which the bar has no
+ * automatic way to detect.
  */
 export function PhoneStepForm({
   onSubmitPhone,
@@ -35,8 +35,15 @@ export function PhoneStepForm({
     defaultValues: { phone: defaultPhone ?? '' },
   });
 
-  const onSubmit = handleSubmit(({ phone }) => {
-    onSubmitPhone(phone);
+  const { start, done } = useTopLoader();
+
+  const onSubmit = handleSubmit(async ({ phone }) => {
+    start();
+    try {
+      await withMinimumDuration(Promise.resolve(onSubmitPhone(phone)));
+    } finally {
+      done();
+    }
   });
 
   return (
