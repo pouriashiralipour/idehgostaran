@@ -181,6 +181,26 @@
   }
 }
 
+/**
+ * Fade+slide entrance used when AuthFlow swaps between the phone and
+ * OTP steps. Re-triggered on every step change because the wrapper
+ * element is remounted via a `key` prop in auth-flow.tsx.
+ */
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-in {
+  animation: fade-slide-in 0.35s ease-out;
+}
+
 .ql-editor {
   direction: rtl !important;
   text-align: right !important;
