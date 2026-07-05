@@ -20,9 +20,7 @@ interface PhoneStepFormProps {
  *
  * All format/normalization logic (Persian digits, +98, 0098) lives in
  * `phoneFormSchema` — this component only wires react-hook-form to
- * that schema and renders the result. Keeping validation out of the
- * component makes it independently testable and reusable (e.g. if a
- * "change phone number" settings page needs the exact same rules).
+ * that schema and renders the result.
  */
 export function PhoneStepForm({
   onSubmitPhone,

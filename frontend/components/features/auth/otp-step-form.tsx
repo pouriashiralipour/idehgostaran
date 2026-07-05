@@ -4,7 +4,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { ArrowDiagonalIcon, ChevronRightIcon } from '@/components/ui/icons';
+import { useResendTimer } from '@/hooks/use-resend-timer';
 import { maskIranianPhoneNumber } from '@/lib/utils/phone';
+import { formatSecondsAsPersianClock } from '@/lib/utils/time';
 import { otpFormSchema, type OtpFormValues } from '@/lib/validations/auth';
 
 interface OtpStepFormProps {
@@ -14,16 +16,20 @@ interface OtpStepFormProps {
   onSubmitOtp: (otp: string) => void;
   /** Lets the user step back and correct a mistyped phone number. */
   onEditPhone: () => void;
+  /** Called when the user requests a new code after the cooldown expires. */
+  onResendOtp: () => void;
 }
 
 /**
  * Step 2 of the auth flow: collect and validate the 6-digit OTP sent
- * to the phone number confirmed in step 1.
+ * to the phone number confirmed in step 1, plus a resend-cooldown
+ * timer so the user always has a way forward if the SMS never arrives.
  */
 export function OtpStepForm({
   phone,
   onSubmitOtp,
   onEditPhone,
+  onResendOtp,
 }: OtpStepFormProps) {
   const {
     register,
@@ -34,9 +40,19 @@ export function OtpStepForm({
     defaultValues: { otp: '' },
   });
 
+  const { secondsLeft, canResend, restart } = useResendTimer({
+    durationInSeconds: 60,
+  });
+
   const onSubmit = handleSubmit(({ otp }) => {
     onSubmitOtp(otp);
   });
+
+  const handleResendClick = (): void => {
+    if (!canResend) return;
+    onResendOtp();
+    restart();
+  };
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-3">
@@ -92,6 +108,23 @@ export function OtpStepForm({
         </span>
         <ArrowDiagonalIcon className="w-5 h-5" />
       </button>
+
+      <div className="flex items-center justify-center">
+        {canResend ? (
+          <button
+            type="button"
+            onClick={handleResendClick}
+            className="font-semibold text-xs text-primary transition-colors hover:opacity-80"
+          >
+            ارسال مجدد کد
+          </button>
+        ) : (
+          <span className="font-semibold text-xs text-muted">
+            ارسال مجدد کد تا{' '}
+            <span dir="ltr">{formatSecondsAsPersianClock(secondsLeft)}</span>
+          </span>
+        )}
+      </div>
 
       <button
         type="button"
