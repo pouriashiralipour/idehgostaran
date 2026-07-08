@@ -1,3 +1,5 @@
+import { DashboardStatsGrid } from '@/components/features/profile/dashboard-stats-grid';
+import { LearningCoursesCarousel } from '@/components/features/profile/learning-courses-carousel';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 export default function ProfileDashboardPage() {
   return (
     <div className="space-y-10">
+      <DashboardStatsGrid />
       <div className="space-y-5">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1">
@@ -28,6 +31,7 @@ export default function ProfileDashboardPage() {
             دوره های در حال یادگیری
           </div>
         </div>
+        <LearningCoursesCarousel />
       </div>
     </div>
   );

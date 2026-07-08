@@ -16,7 +16,7 @@ export const profileNavLinks: ProfileNavLink[] = [
   },
   {
     id: 'courses',
-    title: 'دوره ها',
+    title: 'مقاله ها',
     href: '/profile-courses',
     iconName: 'CoursesIcon',
   },
@@ -25,12 +25,6 @@ export const profileNavLinks: ProfileNavLink[] = [
     title: 'علاقمندی ها',
     href: '/profile-wishlist',
     iconName: 'HeartIcon',
-  },
-  {
-    id: 'financial',
-    title: 'مالی و اشتراک',
-    href: '/profile-financial',
-    iconName: 'WalletIcon',
   },
   {
     id: 'comments',
@@ -43,12 +37,6 @@ export const profileNavLinks: ProfileNavLink[] = [
     title: 'تیکت و پشتیبانی',
     href: '/profile-tickets',
     iconName: 'TicketIcon',
-  },
-  {
-    id: 'notifications',
-    title: 'اعلانات',
-    href: '/profile-notifications',
-    iconName: 'BellIcon',
   },
   {
     id: 'edit',
