@@ -8,7 +8,6 @@ import type { NavLink, UserMenuLink } from '@/types/navigation';
 export const mainNavLinks: NavLink[] = [
   { id: 'home', title: 'صفحه اصلی', href: '/' },
   { id: 'blog', title: 'مقالات آموزشی', href: '/blog' },
-  { id: 'consultation', title: 'مشاوره', href: '#' },
   {
     id: 'useful-links',
     title: 'نمونه کار',
@@ -25,6 +24,8 @@ export const mainNavLinks: NavLink[] = [
       },
     ],
   },
+  { id: 'about-us', title: 'درباره ما', href: '/about-us' },
+  { id: 'contact-us', title: 'تماس با ما', href: '/contact-us' },
 ];
 
 /**
@@ -46,6 +47,8 @@ export const userMenuLinks: UserMenuLink[] = [
 
 /** Mobile offcanvas footer links (Q&A and articles shortcuts). */
 export const mobileFooterLinks: NavLink[] = [
-  { id: 'qa', title: 'پرسش و پاسخ', href: '#' },
-  { id: 'articles', title: 'مقالات آموزشی', href: '#' },
+  { id: 'blog', title: 'مقالات آموزشی', href: '/blog' },
+  { id: 'resume', title: 'نمونه کارها', href: '/resume' },
+  { id: 'about-us', title: 'درباره ما', href: '/about-us' },
+  { id: 'contact-us', title: 'تماس با ما', href: '/contact-us' },
 ];

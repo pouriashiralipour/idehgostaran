@@ -97,7 +97,7 @@ export function MobileCategoriesAccordion() {
         )}
       >
         <GridIcon className="w-5 h-5" />
-        <span className="font-semibold text-xs">دسته بندی آموزشها</span>
+        <span className="font-semibold text-xs">دسته بندی مقالات</span>
         <span
           className={cn(
             'absolute rtl:left-3 ltr:right-3 transition-transform',
