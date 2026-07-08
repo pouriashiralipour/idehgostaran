@@ -2,6 +2,14 @@ export interface ArticleAuthor {
   name: string;
   avatarSrc: string;
   href: string;
+  bio?: string;
+}
+
+/** A single paragraph in an article's full body content. */
+export interface ArticleBodyParagraph {
+  id: string;
+  text: string;
+  bold?: boolean;
 }
 
 export interface Article {
@@ -11,15 +19,14 @@ export interface Article {
   categoryHref: string;
   imageSrc: string;
   imageAlt: string;
-  /** Small success-colored status pill (e.g. "تازه منتشر شده"). */
   statusLabel: string;
   readingTimeLabel: string;
-  /** Bare minutes (e.g. "۱۲ دقیقه") for compact cards with their own "زمان مطالعه:" label. */
   readingMinutesLabel: string;
   viewsLabel: string;
   publishedAtLabel: string;
   author: ArticleAuthor;
   href: string;
+  bodyParagraphs?: ArticleBodyParagraph[];
 }
 
 /**
@@ -48,7 +55,19 @@ export const latestArticles: Article[] = [
       name: 'جلال بهرامی راد',
       avatarSrc: '/images/avatars/01.jpeg',
       href: '/author/jalal-bahramirad',
+      bio: 'اول داستان، طراح گرافیک بودم و ۲ سالی به عنوان طراح مشغول بودم، بعد به برنامه‌نویسی علاقمند شدم و الان بیشتر از ۱۰ ساله که عاشق کدزنی و چالش‌های پروژه‌های مختلفم.',
     },
+    bodyParagraphs: [
+      {
+        id: 'p1',
+        bold: true,
+        text: 'React همچنان یکی از پرکاربردترین فریمورک‌های جاوااسکریپتی دنیای وب است.',
+      },
+      {
+        id: 'p2',
+        text: 'در این راهنما قدم به قدم با راه‌اندازی یک پروژه‌ی Next.js 16، ساختار App Router، و بهترین شیوه‌های مدیریت کامپوننت‌های سرور و کلاینت آشنا می‌شویم.',
+      },
+    ],
     href: '/blog/react-nextjs-getting-started',
   },
   {

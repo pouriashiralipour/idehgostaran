@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { ArrowDiagonalIcon } from '@/components/ui/icons';
 import { Footer } from '@/components/layout/footer/footer';
-import { Header } from '@/components/layout/header/header';
+import { SiteHeader } from '@/components/layout/header/site-header';
 
 /**
  * Global 404 page.
@@ -16,8 +16,8 @@ import { Header } from '@/components/layout/header/header';
  */
 export default function NotFound() {
   return (
-    <div className="flex flex-col min-h-screen bg-secondary">
-      <Header />
+    <div className="flex flex-col min-h-screen bg-background">
+      <SiteHeader />
       <main className="flex-auto py-5">
         <div className="max-w-7xl space-y-14 px-4 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-12">
