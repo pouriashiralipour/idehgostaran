@@ -38,7 +38,7 @@ export default function AuthPage() {
           </Link>
           و
           <Link
-            href="/"
+            href="/terms"
             className="text-foreground transition-colors hover:text-primary hover:underline"
           >
             قوانین حریم خصوصی
